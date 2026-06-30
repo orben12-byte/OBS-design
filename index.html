@@ -4,606 +4,854 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Or Ben-Senior — Design Studio</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FFD60A'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='18' fill='%23111'>O</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FFD60A'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='20' fill='%23111'>O</text></svg>">
     <meta property="og:title" content="Or Ben-Senior — Design Studio">
     <meta property="og:description" content="Product, brand, web, wayfinding and motion — one designer, end to end. Based in Haifa, Israel.">
+    <meta property="og:url" content="https://orben12-byte.github.io/OBS-design/">
     <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Or Ben-Senior — Design Studio">
+    <meta name="twitter:description" content="Product, brand, web, wayfinding and motion — one designer, end to end. Based in Haifa, Israel.">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg:      #0C0C0C;
-            --card:    #131313;
-            --card2:   #1A1A1A;
-            --yellow:  #FFD60A;
-            --orange:  #F5820A;
-            --white:   #FFFFFF;
-            --muted:   rgba(255,255,255,0.42);
-            --line:    rgba(255,255,255,0.07);
-            --max:     1120px;
+            --yellow: #FFD60A;
+            --black:  #111111;
+            --card:   #1A1A1A;
+            --orange: #F5820A;
+            --white:  #FFFFFF;
+            --muted:  #999999;
+            --max:    1100px;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
+            background: var(--black);
             color: var(--white);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
-        a { color: inherit; }
-        * { cursor: none !important; }
-
-        /* CURSOR */
-        .cursor {
-            position: fixed; top: 0; left: 0; z-index: 9999;
-            width: 10px; height: 10px; border-radius: 50%;
-            background: var(--yellow); pointer-events: none;
-            transition: width 0.18s ease, height 0.18s ease, background 0.18s ease;
-            transform: translate(-50%, -50%);
-        }
-        .cursor.big { width: 42px; height: 42px; }
-        .cursor.on-yellow { background: #111; }
-
-        /* NAV */
+        /* ── NAV ── */
         nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 44px;
-            background: rgba(12,12,12,0.85);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
-        }
-        nav.scrolled { border-bottom: 1px solid var(--line); }
-
-        .nav-logo {
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; font-weight: 800; font-size: 15px; color: var(--white);
-        }
-        .logo-mark {
-            width: 28px; height: 28px; border-radius: 7px;
-            background: var(--yellow);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; font-weight: 900; color: #111;
-            flex-shrink: 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 48px;
+            background: rgba(255, 214, 10, 0.92);
+            backdrop-filter: blur(8px);
         }
 
-        .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
-        .nav-links a { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--muted); transition: color 0.2s; }
-        .nav-links a:hover { color: var(--white); }
-        .nav-cta {
-            background: var(--yellow) !important; color: #111 !important;
-            font-weight: 700 !important; padding: 9px 20px;
-            border-radius: 100px;
-            transition: transform 0.18s, opacity 0.18s;
+        .nav-name {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--black);
+            text-decoration: none;
+            letter-spacing: -0.3px;
         }
-        .nav-cta:hover { transform: translateY(-1px); opacity: 0.9; }
 
-        /* HERO */
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover { opacity: 1; }
+
+        /* ── HERO ── */
         .hero {
             min-height: 100vh;
-            display: flex; align-items: center;
-            padding: 130px 44px 90px;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            padding: 100px 48px 60px;
+            position: relative;
+            overflow: hidden;
         }
+
         .hero-inner {
-            max-width: var(--max); margin: 0 auto; width: 100%;
-            display: grid; grid-template-columns: 1.25fr 0.75fr;
-            align-items: center; gap: 60px;
+            max-width: var(--max);
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
         }
+
+        .hero-text { flex: 1; }
 
         .hero-tag {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(245,130,10,0.1); color: var(--orange);
-            font-size: 12px; font-weight: 600;
-            padding: 7px 16px; border-radius: 100px;
-            border: 1px solid rgba(245,130,10,0.22);
-            margin-bottom: 30px;
-        }
-        .hero-tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
-
-        .hero h1 {
-            font-size: clamp(48px, 6.8vw, 84px);
-            font-weight: 800; line-height: 0.97;
-            letter-spacing: -2.5px; margin-bottom: 26px;
-        }
-        .hero h1 em { font-style: italic; color: var(--yellow); }
-
-        .hero-sub {
-            font-size: 18px; color: var(--muted);
-            line-height: 1.62; max-width: 450px; margin-bottom: 36px;
-        }
-        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-weight: 700; font-size: 15px; text-decoration: none;
-            padding: 14px 26px; border-radius: 100px;
-            transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
-        }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-yellow {
-            background: var(--yellow); color: #111;
-            box-shadow: 0 8px 30px -10px rgba(255,214,10,0.55);
-        }
-        .btn-yellow:hover { box-shadow: 0 14px 36px -10px rgba(255,214,10,0.65); }
-        .btn-ghost { color: var(--white); border: 1.5px solid rgba(255,255,255,0.14); }
-        .btn-ghost:hover { border-color: rgba(255,255,255,0.38); }
-
-        /* HERO VISUAL */
-        .hero-visual { position: relative; display: flex; justify-content: center; }
-        .avatar-ring {
-            width: 270px; height: 270px; border-radius: 50%;
-            background: radial-gradient(circle at 35% 20%, rgba(255,214,10,0.22), rgba(245,130,10,0.06) 70%);
-            display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
-            box-shadow: 0 0 0 1px rgba(255,214,10,0.12), 0 40px 80px -40px rgba(255,214,10,0.22);
-        }
-        .avatar-ring img { width: 88%; display: block; }
-
-        .hero-badge {
-            position: absolute; bottom: 22px; left: -10px;
-            background: var(--card2); border: 1px solid var(--line);
-            border-radius: 14px; padding: 12px 18px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-        }
-        .hero-badge strong { font-size: 20px; font-weight: 800; display: block; color: var(--yellow); }
-        .hero-badge span { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; }
-
-        .hero-badge-2 {
-            position: absolute; top: 24px; right: -16px;
-            background: var(--yellow); color: #111;
-            border-radius: 100px; padding: 8px 16px;
-            font-size: 12px; font-weight: 700;
+            display: inline-block;
+            background: var(--black);
+            color: var(--yellow);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
         }
 
-        /* STRIP */
-        .strip {
-            padding: 20px 44px;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-        .strip-inner {
-            max-width: var(--max); margin: 0 auto;
-            display: flex; flex-wrap: wrap; gap: 8px 32px;
-            align-items: center; justify-content: center;
-            font-size: 14px; font-weight: 600; color: var(--muted);
-        }
-        .strip-sep { color: var(--yellow); font-size: 9px; }
-
-        /* SECTION BASE */
-        section { padding: 96px 44px; }
-        .wrap { max-width: var(--max); margin: 0 auto; }
-        .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--yellow); margin-bottom: 12px; }
-        .sec-title { font-size: clamp(30px, 3.8vw, 46px); font-weight: 800; letter-spacing: -1px; line-height: 1.05; }
-        .sec-head { max-width: 640px; margin-bottom: 52px; }
-        .sec-head p { color: var(--muted); font-size: 18px; line-height: 1.6; margin-top: 14px; }
-
-        /* BENTO GRID */
-        .bento {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 230px 190px 170px;
-            gap: 10px;
-        }
-
-        .svc {
-            border-radius: 18px; padding: 26px 28px;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            position: relative; overflow: hidden;
-            transition: transform 0.28s ease, box-shadow 0.28s ease;
-        }
-        .svc:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
-        .svc-num { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 6px; }
-        .svc h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 7px; line-height: 1.1; }
-        .svc p { font-size: 14px; line-height: 1.55; }
-        .svc .tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 5px; }
-        .svc .tags b { font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 100px; }
-
-        /* Product: biggest card */
-        .svc-product {
-            grid-column: 1 / 3; grid-row: 1 / 3;
-            background: var(--card2); border: 1px solid rgba(255,255,255,0.06);
-            justify-content: flex-start;
-        }
-        .svc-product .svc-icon {
-            font-size: 52px; line-height: 1; margin-bottom: auto;
-            background: linear-gradient(135deg, var(--yellow) 0%, var(--orange) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .svc-product h3 { font-size: 28px; }
-        .svc-product p { color: var(--muted); font-size: 16px; max-width: 320px; }
-        .svc-product .tags b { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6); }
-        .svc-product .svc-num { color: rgba(255,255,255,0.28); }
-
-        /* Brand: yellow */
-        .svc-brand {
-            grid-column: 3; grid-row: 1;
-            background: var(--yellow); color: #111;
-        }
-        .svc-brand .svc-num { color: rgba(0,0,0,0.35); }
-        .svc-brand p { color: rgba(0,0,0,0.55); }
-        .svc-brand .tags b { background: rgba(0,0,0,0.1); color: #333; }
-
-        /* Wayfinding: orange */
-        .svc-wayfinding {
-            grid-column: 3; grid-row: 2;
-            background: var(--orange); color: #fff;
-        }
-        .svc-wayfinding .svc-num { color: rgba(255,255,255,0.45); }
-        .svc-wayfinding p { color: rgba(255,255,255,0.65); }
-        .svc-wayfinding .tags b { background: rgba(255,255,255,0.15); color: #fff; }
-
-        /* Web: bottom-left */
-        .svc-web {
-            grid-column: 1; grid-row: 3;
-            background: var(--card2); border: 1px solid var(--line);
-        }
-        .svc-web .svc-num { color: rgba(255,255,255,0.28); }
-        .svc-web p { color: var(--muted); }
-        .svc-web .tags b { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6); }
-
-        /* Motion: bottom-right wide */
-        .svc-motion {
-            grid-column: 2 / 4; grid-row: 3;
-            background: var(--card2); border: 1px solid var(--line);
-            flex-direction: row; align-items: center; justify-content: space-between;
-            gap: 20px;
-        }
-        .svc-motion .svc-num { color: rgba(255,255,255,0.28); }
-        .svc-motion p { color: var(--muted); }
-        .svc-motion-text { display: flex; flex-direction: column; justify-content: flex-end; }
-
-        /* WORK */
-        .work-sect { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .work-card {
-            border-radius: 18px; overflow: hidden; text-decoration: none;
-            background: var(--card2); border: 1px solid var(--line);
-            display: flex; flex-direction: column; min-height: 290px;
-            transition: transform 0.28s, border-color 0.28s;
-        }
-        .work-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.13); }
-        .work-thumb { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; letter-spacing: -1px; color: rgba(255,255,255,0.85); }
-        .work-meta { padding: 18px 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-        .work-meta h3 { font-size: 18px; font-weight: 700; }
-        .work-meta span { font-size: 12px; color: var(--muted); display: block; margin-top: 3px; }
-        .work-arr { color: var(--yellow); font-size: 19px; transition: transform 0.2s; flex-shrink: 0; }
-        .work-card:hover .work-arr { transform: translate(3px,-3px); }
-
-        /* PROCESS */
-        .process-sect { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-        .step {
-            padding: 26px 24px; background: var(--card2);
-            border-radius: 16px; border: 1px solid var(--line);
-        }
-        .step-n {
-            width: 38px; height: 38px; border-radius: 10px;
-            background: rgba(255,214,10,0.1); color: var(--yellow);
-            font-size: 17px; font-weight: 800;
-            display: flex; align-items: center; justify-content: center;
+        .hero-name {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: clamp(48px, 6.4vw, 72px);
+            color: var(--black);
+            line-height: 1;
+            letter-spacing: -2px;
             margin-bottom: 16px;
         }
-        .step.first .step-n { background: var(--yellow); color: #111; }
-        .step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
-        .step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-        .step .pill { display: inline-block; margin-top: 11px; font-size: 11px; font-weight: 700; color: var(--yellow); background: rgba(255,214,10,0.1); padding: 4px 11px; border-radius: 100px; }
 
-        /* ABOUT */
-        .about-inner { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: center; }
-        .about-photo {
-            border-radius: 22px; overflow: hidden; aspect-ratio: 4/5;
-            display: flex; align-items: flex-end; justify-content: center;
-            background: radial-gradient(circle at 40% 10%, rgba(255,214,10,0.16), rgba(245,130,10,0.06) 70%);
-            border: 1px solid var(--line);
+        .hero-tagline {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(17, 17, 17, 0.65);
+            line-height: 1.55;
+            max-width: 480px;
+            margin-bottom: 36px;
         }
-        .about-photo img { width: 86%; }
-        .about-text h2 { font-size: clamp(26px, 3.4vw, 42px); font-weight: 800; letter-spacing: -1px; line-height: 1.08; margin-bottom: 20px; }
-        .about-text h2 em { font-style: italic; color: var(--yellow); }
-        .about-text p { color: var(--muted); font-size: 17px; line-height: 1.72; margin-bottom: 14px; }
-        .about-stats { display: flex; gap: 36px; margin-top: 28px; }
-        .about-stats b { font-size: 36px; font-weight: 800; color: var(--yellow); display: block; }
-        .about-stats span { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
-        /* CONTACT */
-        .contact-sect { background: var(--yellow); }
-        .contact-inner { max-width: var(--max); margin: 0 auto; }
-        .contact-inner .eyebrow { color: rgba(17,17,17,0.45); }
-        .contact-inner h2 { font-size: clamp(32px, 4.5vw, 58px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.02; color: #111; margin-top: 8px; }
-        .contact-inner h2 em { font-style: italic; color: var(--orange); }
-        .contact-inner p { color: rgba(17,17,17,0.55); font-size: 18px; line-height: 1.6; margin-top: 14px; max-width: 460px; }
-        .contact-cta { margin-top: 36px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-        .btn-dark { background: #111; color: #fff; box-shadow: none; }
-        .btn-dark:hover { box-shadow: 0 14px 40px -10px rgba(0,0,0,0.4); }
-        .contact-links { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
-        .contact-links a { font-size: 14px; font-weight: 500; color: rgba(17,17,17,0.5); text-decoration: none; transition: color 0.2s; }
-        .contact-links a:hover { color: #111; }
+        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
-        footer {
-            padding: 28px 44px; border-top: 1px solid var(--line);
-            display: flex; justify-content: space-between; align-items: center;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--black);
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 16px;
+            padding: 18px 36px;
+            border-radius: 100px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        footer span { font-size: 13px; color: var(--muted); }
-        footer a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-        footer a:hover { color: var(--white); }
 
-        /* REVEAL */
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
-        .reveal.in { opacity: 1; transform: none; }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            nav { padding: 14px 22px; }
-            .nav-links li:not(:last-child) { display: none; }
-            section { padding: 64px 22px; }
-            .hero { padding: 110px 22px 64px; }
-            .hero-inner { grid-template-columns: 1fr; gap: 44px; }
-            .hero-visual { order: -1; }
-            .avatar-ring { width: 200px; height: 200px; }
-            .hero-badge-2 { display: none; }
-            .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
-            .svc-product, .svc-brand, .svc-wayfinding, .svc-web { grid-column: 1; grid-row: auto; }
-            .svc-motion { grid-column: 1; grid-row: auto; flex-direction: column; align-items: flex-start; }
-            .svc-product { min-height: 260px; }
-            .work-grid { grid-template-columns: 1fr; }
-            .steps { grid-template-columns: 1fr 1fr; }
-            .about-inner { grid-template-columns: 1fr; }
-            .about-photo { max-width: 280px; margin: 0 auto; }
-            .strip { padding: 18px 22px; }
-            footer { flex-direction: column; gap: 12px; text-align: center; }
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
         }
-        @media (max-width: 520px) {
-            .steps { grid-template-columns: 1fr; }
-            .hero h1 { letter-spacing: -1.5px; }
+
+        .hero-cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 16px;
+            padding: 18px 30px;
+            border-radius: 100px;
+            border: 1.5px solid rgba(17,17,17,0.22);
+            text-decoration: none;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .hero-cta-ghost:hover { transform: translateY(-3px); border-color: rgba(17,17,17,0.45); }
+
+        .hero-avatar {
+            flex-shrink: 0;
+            width: clamp(240px, 30vw, 360px);
+            height: clamp(240px, 30vw, 360px);
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* ── SECTION SHARED ── */
+        .section-header {
+            max-width: var(--max);
+            margin: 0 auto 48px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: clamp(32px, 4vw, 44px);
+            letter-spacing: -1.5px;
+        }
+
+        .section-sub {
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 360px;
+            line-height: 1.55;
+        }
+
+        /* ── SERVICES ── */
+        .services {
+            background: var(--black);
+            padding: 96px 48px 64px;
+        }
+
+        .services-grid {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .svc-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 32px 28px;
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        .svc-card.animating {
+            transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .svc-card.visible { opacity: 1; transform: translateY(0); }
+
+        .svc-num {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--yellow);
+            margin-bottom: 16px;
+        }
+
+        .svc-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: 19px;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+        }
+
+        .svc-card p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── WORK ── */
+        .work {
+            background: var(--black);
+            padding: 64px 48px 96px;
+        }
+
+        .projects-grid {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        .card.animating {
+            transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+                        transform 0.6s cubic-bezier(0.16,1,0.3,1),
+                        box-shadow 0.2s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card.visible:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+        }
+
+        .card-thumb {
+            width: 100%;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb-blinkage { background: #3547DB url('blinkage-cover-new.png') center/cover no-repeat; }
+        .card-thumb-sirkis { background: #0d1b3e url('sirkis-cover.jpg') center/cover no-repeat; }
+        .card-thumb-digitaz { background: linear-gradient(135deg, #f0f6ff 0%, #c8dcf8 60%, #daeeff 100%); }
+        .card-thumb-digitaz img { position: relative; z-index: 1; width: 58%; max-width: 300px; mix-blend-mode: multiply; }
+        .card-thumb-lifehero { background: #FFD60A url('lifehero-cover.png') center/cover no-repeat; }
+
+        .card-thumb::after {
+            content: 'View Case Study';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: rgba(17,17,17,0.65);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .card.visible:hover .card-thumb::after { opacity: 1; }
+
+        .card-body { padding: 24px 28px 28px; }
+
+        .card-meta {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--yellow);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+            color: var(--white);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .card-desc { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+        /* ── CLIENTS ── */
+        .clients { background: var(--yellow); padding: 56px 48px; overflow: hidden; }
+        .clients-inner { max-width: var(--max); margin: 0 auto; }
+        .clients-label {
+            font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+            text-transform: uppercase; color: rgba(17,17,17,0.5); margin-bottom: 28px;
+        }
+        .clients-list {
+            display: flex; flex-wrap: nowrap; gap: 12px;
+            overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+        }
+        .clients-list::-webkit-scrollbar { display: none; }
+        .client-tag {
+            background: rgba(17,17,17,0.08); border: 1.5px solid rgba(17,17,17,0.12);
+            border-radius: 100px; padding: 8px 18px; font-size: 13px; font-weight: 600;
+            color: var(--black); white-space: nowrap; flex-shrink: 0;
+        }
+
+        /* ── PROCESS ── */
+        .process { background: var(--black); padding: 96px 48px; }
+        .process-grid {
+            max-width: var(--max); margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .step { background: var(--card); border-radius: 16px; padding: 28px 24px; }
+        .step-num {
+            font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 32px;
+            color: var(--yellow); letter-spacing: -1px; margin-bottom: 14px;
+        }
+        .step h3 { font-size: 16px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.2px; }
+        .step p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+        /* ── ABOUT ── */
+        .about { background: var(--black); padding: 96px 48px; }
+        .about-inner {
+            max-width: var(--max); margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+        }
+        .about-text h2 {
+            font-family: 'DM Sans', sans-serif; font-weight: 800;
+            font-size: clamp(32px, 4vw, 44px); letter-spacing: -1.5px; margin-bottom: 20px;
+        }
+        .about-text p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 14px; }
+        .about-text a {
+            display: inline-flex; align-items: center; gap: 8px; color: var(--yellow);
+            font-weight: 600; font-size: 14px; text-decoration: none; margin-top: 8px;
+        }
+        .about-text a:hover { text-decoration: underline; }
+        .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .stat-card { background: var(--card); border-radius: 12px; padding: 24px; }
+        .stat-card-wide { grid-column: 1 / -1; }
+        .stat-number {
+            font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 40px;
+            letter-spacing: -2px; color: var(--yellow); line-height: 1; margin-bottom: 4px;
+        }
+        .stat-label { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+        /* ── CONTACT / FOOTER ── */
+        footer { background: var(--card); padding: 56px 48px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-inner {
+            max-width: var(--max); margin: 0 auto; display: flex;
+            justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+        }
+        .footer-left h3 {
+            font-family: 'DM Sans', sans-serif; font-weight: 800; font-size: 22px;
+            letter-spacing: -0.5px; margin-bottom: 6px;
+        }
+        .footer-left p { font-size: 14px; color: var(--muted); }
+        .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .footer-link {
+            display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px;
+            border-radius: 100px; font-size: 14px; font-weight: 600; text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .footer-link:hover { transform: translateY(-2px); }
+        .footer-link-email { background: var(--yellow); color: var(--black); }
+        .footer-link-li { background: rgba(255,255,255,0.08); color: var(--white); }
+        .footer-copy {
+            max-width: var(--max); margin: 32px auto 0; font-size: 12px;
+            color: rgba(255,255,255,0.2); padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ── HAMBURGER ── */
+        .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--black); border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { padding: 16px 24px; }
+            .nav-hamburger { display: flex; }
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--yellow); flex-direction: column; gap: 0;
+                padding: 8px 0 16px; border-top: 1px solid rgba(0,0,0,0.08);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { width: 100%; }
+            .nav-links a { display: block; padding: 14px 24px; font-size: 16px; opacity: 1; }
+
+            .hero { padding: 100px 24px 60px; min-height: auto; }
+            .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+            .hero-avatar { width: clamp(160px, 50vw, 220px); height: clamp(160px, 50vw, 220px); align-self: center; }
+            .hero-name { font-size: clamp(40px, 11vw, 56px); }
+            .hero-tagline { font-size: 16px; }
+
+            .services { padding: 64px 24px 40px; }
+            .services-grid { grid-template-columns: 1fr; }
+
+            .work { padding: 40px 24px 64px; }
+            .projects-grid { grid-template-columns: 1fr; }
+
+            .clients { padding: 40px 24px; }
+
+            .process { padding: 64px 24px; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+
+            .about { padding: 64px 24px; }
+            .about-inner { grid-template-columns: 1fr; gap: 48px; }
+
+            footer { padding: 40px 24px; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+            .footer-links { flex-wrap: wrap; }
+        }
+
+        @media (max-width: 480px) {
+            .process-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── HERO ENTRANCE ── */
+        @keyframes heroClipReveal {
+            from { clip-path: inset(100% 0 0 0); transform: translateY(20px); }
+            to   { clip-path: inset(0% 0 0 0);   transform: translateY(0); }
+        }
+        .hero-tag     { animation: heroClipReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.10s both; }
+        .hero-name    { animation: heroClipReveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.26s both; }
+        .hero-tagline { animation: heroClipReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.44s both; }
+        .hero-btns    { animation: heroClipReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.56s both; }
+
+        @keyframes heroAvatarReveal {
+            from { opacity: 0; transform: translateX(20px) scale(0.94); }
+            to   { opacity: 1; transform: translateX(0)    scale(1);    }
+        }
+        .hero-avatar  { animation: heroAvatarReveal 1.0s cubic-bezier(0.16,1,0.3,1) 0.38s both; }
+
+        /* ── CUSTOM CURSOR (desktop only) ── */
+        @media (hover: hover) and (pointer: fine) {
+            *, *::before, *::after { cursor: none !important; }
+            #cursor {
+                position: fixed; top: 0; left: 0; width: 10px; height: 10px;
+                background: var(--yellow); mix-blend-mode: difference; border-radius: 50%;
+                pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
+                opacity: 0; transition: width 0.25s ease, height 0.25s ease, opacity 0.3s ease;
+                will-change: transform;
+            }
+            #cursor.is-visible  { opacity: 1; }
+            #cursor.is-hovering { width: 48px; height: 48px; }
+        }
+
+        /* ── PAGE TRANSITION VEIL ── */
+        #page-veil {
+            position: fixed; inset: 0; background: var(--black); z-index: 9998;
+            pointer-events: none; opacity: 1; transition: opacity 0.28s ease;
+        }
+        #page-veil.clear { opacity: 0; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-tag, .hero-name, .hero-tagline, .hero-btns, .hero-avatar { animation: none; opacity: 1; transform: none; }
+            .card, .svc-card { opacity: 1; transform: none; }
+            .card.animating, .card.visible, .svc-card.animating, .svc-card.visible { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+            #cursor { display: none !important; }
+            #page-veil { display: none !important; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name { font-size: 40px; }
+            .stat-number { font-size: 32px; }
+            .footer-link { padding: 10px 16px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="page-veil"></div>
 
-<div class="cursor" id="cursor"></div>
+    <!-- NAV -->
+    <nav>
+        <a class="nav-name" href="#top">Or Ben-Senior</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
 
-<nav id="nav">
-    <a href="#top" class="nav-logo">
-        <span class="logo-mark">O</span>
-        Or Ben-Senior
-    </a>
-    <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="nav-cta">Start a project</a></li>
-    </ul>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="top">
-    <div class="hero-inner">
-        <div class="hero-text">
-            <span class="hero-tag">Available for freelance · Haifa, Israel</span>
-            <h1>Design that <em>hits.</em><br>From screen<br>to wall.</h1>
-            <p class="hero-sub">Product, brand, web, wayfinding and motion — one designer who owns the whole thing. Zero bureaucracy on your side.</p>
-            <div class="hero-btns">
-                <a href="#contact" class="btn btn-yellow">Start a project →</a>
-                <a href="#work" class="btn btn-ghost">See work</a>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <span class="hero-tag">Haifa, Israel · Freelance Studio</span>
+                <h1 class="hero-name">Or<br>Ben-Senior</h1>
+                <p class="hero-tagline">Product, brand, web, wayfinding and motion — one designer, end to end. I help founders and teams turn an idea into something people can actually use.</p>
+                <div class="hero-btns">
+                    <a class="hero-cta" href="#contact">Start a project →</a>
+                    <a class="hero-cta-ghost" href="#work">See work</a>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                <img src="avatar-circle.png" alt="Or Ben-Senior">
             </div>
         </div>
-        <div class="hero-visual">
-            <div class="avatar-ring"><img src="avatar-circle.png" alt="Or Ben-Senior"></div>
-            <div class="hero-badge"><strong>5+</strong><span>years designing</span></div>
-            <div class="hero-badge-2">30+ projects ✦</div>
-        </div>
-    </div>
-</header>
+    </section>
 
-<!-- CLIENTS -->
-<div class="strip">
-    <div class="strip-inner">
-        <span>MAX</span><span class="strip-sep">✦</span><span>Rambam</span><span class="strip-sep">✦</span><span>Emek Medical</span><span class="strip-sep">✦</span><span>Lubinski Group</span><span class="strip-sep">✦</span><span>BuyMe</span><span class="strip-sep">✦</span><span>Hitech Zone</span>
-    </div>
-</div>
-
-<!-- SERVICES -->
-<section id="services">
-    <div class="wrap">
-        <div class="sec-head reveal">
-            <div class="eyebrow">Services</div>
-            <h2 class="sec-title">Five disciplines. One person.</h2>
-            <p>Most studios pick a lane. I work across all of them — so one person can take your brand from idea to screen to the sign on the wall.</p>
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2 class="section-title">What I do</h2>
+            <p class="section-sub">Five disciplines, one point of contact. No handoffs, no telephone game.</p>
         </div>
-        <div class="bento">
-            <div class="svc svc-product reveal">
-                <div class="svc-icon">◈</div>
-                <div class="svc-num">01 — PRODUCT & UX</div>
-                <h3>The one that makes things work.</h3>
-                <p>Apps and SaaS interfaces that feel obvious to use. Research, flows, UI and prototypes — from zero to handoff.</p>
-                <div class="tags"><b>UI Design</b><b>Prototyping</b><b>Design systems</b><b>User research</b></div>
+        <div class="services-grid">
+            <div class="svc-card">
+                <div class="svc-num">01 — Product</div>
+                <h3>Product & UX Design</h3>
+                <p>End-to-end product design for web and mobile — research, IA, wireframes, UI systems and prototypes that hold up at scale.</p>
             </div>
-            <div class="svc svc-brand reveal">
-                <div class="svc-num">02</div>
+            <div class="svc-card">
+                <div class="svc-num">02 — Brand</div>
                 <h3>Brand & Graphic Design</h3>
-                <p>Identities that stick. Logos, systems, print.</p>
-                <div class="tags"><b>Logo</b><b>Identity</b><b>Print</b></div>
+                <p>Visual identity, logo systems and brand guidelines that give a business a consistent voice across every touchpoint.</p>
             </div>
-            <div class="svc svc-wayfinding reveal">
-                <div class="svc-num">03</div>
-                <h3>Wayfinding & Signage</h3>
-                <p>Helping people move through real spaces. The rare kind of design.</p>
-                <div class="tags"><b>Signage</b><b>Environmental</b></div>
-            </div>
-            <div class="svc svc-web reveal">
-                <div class="svc-num">04</div>
+            <div class="svc-card">
+                <div class="svc-num">03 — Web</div>
                 <h3>Web Design</h3>
-                <p>Landing pages and sites — designed, coded, live.</p>
-                <div class="tags"><b>Responsive</b><b>Coded</b></div>
+                <p>Marketing sites and web apps designed to convert — clean, fast, and built to actually ship.</p>
             </div>
-            <div class="svc svc-motion reveal">
-                <div class="svc-motion-text">
-                    <div class="svc-num">05</div>
-                    <h3>Video & Motion</h3>
-                    <p>Animated content and motion graphics that bring a brand to life.</p>
-                </div>
-                <a href="#contact" class="btn btn-yellow" style="flex-shrink:0;white-space:nowrap">Talk about a project →</a>
+            <div class="svc-card">
+                <div class="svc-num">04 — Wayfinding</div>
+                <h3>Wayfinding & Signage</h3>
+                <p>Physical and spatial design — sign systems, environmental graphics and navigation for buildings, campuses and public spaces.</p>
+            </div>
+            <div class="svc-card">
+                <div class="svc-num">05 — Motion</div>
+                <h3>Video & Motion</h3>
+                <p>Motion graphics and short-form video — explainer content, social assets and animated UI.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- WORK -->
-<section id="work" class="work-sect">
-    <div class="wrap">
-        <div class="sec-head reveal">
-            <div class="eyebrow">Selected work</div>
-            <h2 class="sec-title">A few things I've built.</h2>
-            <p>Full case studies for each project below.</p>
+    <!-- WORK -->
+    <section class="work" id="work">
+        <div class="section-header">
+            <h2 class="section-title">Selected work</h2>
         </div>
-        <div class="work-grid">
-            <a class="work-card reveal" href="https://orben12-byte.github.io/portfolio_2026/project-lifehero.html">
-                <div class="work-thumb" style="background:linear-gradient(135deg,#F5820A,#C04400)">Life Hero</div>
-                <div class="work-meta">
-                    <div><h3>Life Hero</h3><span>Habit app · Product &amp; UX</span></div>
-                    <div class="work-arr">↗</div>
-                </div>
-            </a>
-            <a class="work-card reveal" href="https://orben12-byte.github.io/portfolio_2026/project-blinkage.html">
-                <div class="work-thumb" style="background:linear-gradient(135deg,#2A5080,#0D2540)">Blinkage</div>
-                <div class="work-meta">
-                    <div><h3>Blinkage</h3><span>Customer platform · Web</span></div>
-                    <div class="work-arr">↗</div>
-                </div>
-            </a>
-            <a class="work-card reveal" href="https://orben12-byte.github.io/portfolio_2026/project-digitaz.html">
-                <div class="work-thumb" style="background:linear-gradient(135deg,#3A78CC,#183A75)">DIGI.TAZ</div>
-                <div class="work-meta">
-                    <div><h3>DIGI.TAZ</h3><span>E-wallet app · UI/UX</span></div>
-                    <div class="work-arr">↗</div>
-                </div>
-            </a>
-            <a class="work-card reveal" href="https://orben12-byte.github.io/portfolio_2026/project-sirkis.html">
-                <div class="work-thumb" style="background:linear-gradient(135deg,#1C2B3A,#080F15)">Sirkis 21</div>
-                <div class="work-meta">
-                    <div><h3>Sirkis 21</h3><span>Real-estate app · Product</span></div>
-                    <div class="work-arr">↗</div>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
 
-<!-- PROCESS -->
-<section id="process" class="process-sect">
-    <div class="wrap">
-        <div class="sec-head reveal">
-            <div class="eyebrow">How it works</div>
-            <h2 class="sec-title">Simple on your side.<br>Structured on mine.</h2>
-            <p>You bring the idea. I handle the rest — so you can focus on your thing.</p>
+        <div class="projects-grid">
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-blinkage.html">
+                <div class="card-thumb card-thumb-blinkage"></div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · Web & Mobile</p>
+                    <h3 class="card-title">Blinkage</h3>
+                    <p class="card-desc">End-to-end product design for an SMS enterprise platform serving Amazon, Netflix, and Starbucks.</p>
+                </div>
+            </a>
+
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-sirkis.html">
+                <div class="card-thumb card-thumb-sirkis"></div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · Consumer App · Food</p>
+                    <h3 class="card-title">Sirkis 21</h3>
+                    <p class="card-desc">App experience for a local food market — connecting small independent vendors with their customers.</p>
+                </div>
+            </a>
+
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-digitaz.html">
+                <div class="card-thumb card-thumb-digitaz">
+                    <img src="digitaz/logo.png" alt="DIGI.TAZ logo">
+                </div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · Fintech · Concept</p>
+                    <h3 class="card-title">DIGI.TAZ E-Wallet</h3>
+                    <p class="card-desc">Digital wallet concept — simplifying payments and financial management for everyday users.</p>
+                </div>
+            </a>
+
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-lifehero.html">
+                <div class="card-thumb card-thumb-lifehero"></div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · Graduation Project · App</p>
+                    <h3 class="card-title">Life Hero</h3>
+                    <p class="card-desc">A habit-building app with a superhero theme. Research with 300+ participants, full IA, UI system and prototype.</p>
+                </div>
+            </a>
         </div>
-        <div class="steps">
-            <div class="step first reveal">
-                <div class="step-n">1</div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section class="clients">
+        <div class="clients-inner">
+            <p class="clients-label">Selected clients</p>
+            <div class="clients-list">
+                <span class="client-tag">MAX</span>
+                <span class="client-tag">Hitech Zone</span>
+                <span class="client-tag">Lubinski Group</span>
+                <span class="client-tag">Rambam Medical Center</span>
+                <span class="client-tag">Emek Medical Center</span>
+                <span class="client-tag">BuyMe</span>
+                <span class="client-tag">Nativ</span>
+                <span class="client-tag">And more</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+        <div class="section-header">
+            <h2 class="section-title">How it works</h2>
+            <p class="section-sub">Four steps. You stay focused on your business — I handle the rest.</p>
+        </div>
+        <div class="process-grid">
+            <div class="step">
+                <div class="step-num">01</div>
                 <h3>Brief</h3>
-                <p>You answer a few short questions. I turn them into a clear brief so we both know exactly what we're building.</p>
-                <span class="pill">Guided intake</span>
+                <p>Tell me what you need — a quick form or a call. I scope the project before any pixels move.</p>
             </div>
-            <div class="step reveal">
-                <div class="step-n">2</div>
-                <h3>Proposal</h3>
-                <p>A clear quote: scope, timeline and price. No back-and-forth, no surprises.</p>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>Quote</h3>
+                <p>A clear price and timeline, usually within 24 hours. No surprises later.</p>
             </div>
-            <div class="step reveal">
-                <div class="step-n">3</div>
+            <div class="step">
+                <div class="step-num">03</div>
                 <h3>Design</h3>
-                <p>Concepts, iterations and the work itself — with updates you can actually follow along.</p>
+                <p>I design, you give feedback. Typically 1–3 rounds depending on scope.</p>
             </div>
-            <div class="step reveal">
-                <div class="step-n">4</div>
-                <h3>Handoff</h3>
-                <p>Final files and assets ready to use, plus support after delivery.</p>
+            <div class="step">
+                <div class="step-num">04</div>
+                <h3>Deliver</h3>
+                <p>Final files, source assets and a quick walkthrough so your team can take it from here.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <div class="wrap about-inner">
-        <div class="about-photo reveal"><img src="avatar-circle.png" alt="Or Ben-Senior"></div>
-        <div class="about-text reveal">
-            <div class="eyebrow">About</div>
-            <h2>Design across <em>screen</em> and space.</h2>
-            <p>Started in graphic design, spent years on wayfinding and signage systems, then moved into product and UX. That combination is rare — most designers live in one world. I live in all of them.</p>
-            <p>Working with me means one person who owns the whole thing — clear, direct, and as little bureaucracy as possible.</p>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <h2>One designer, five disciplines</h2>
+                <p>I'm a designer based in Haifa working across product, brand, web, wayfinding and motion. I started in physical experience design — signage systems and spatial information architecture — and brought those principles into everything I do digitally.</p>
+                <p>What I care about most: making things legible. Whether it's a hospital with 800 signs, an app with 50 flows, or a new brand with zero recognition — the problem is the same. How do people know where they are and what to do next?</p>
+                <p>Currently at Raya Galboa Design Studio, previously at Shnorkel Studio (BDO Digital) — and teaching Figma to the next generation of designers.</p>
+                <a href="https://orben12-byte.github.io/portfolio_2026/" target="_blank">View full portfolio →</a>
+            </div>
             <div class="about-stats">
-                <div><b>30+</b><span>projects</span></div>
-                <div><b>5+</b><span>years</span></div>
-                <div><b>5</b><span>disciplines</span></div>
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Projects delivered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years in design</div>
+                </div>
+                <div class="stat-card stat-card-wide">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Disciplines under one roof — product, brand, web, wayfinding, motion</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-sect">
-    <div class="wrap contact-inner">
-        <div class="eyebrow">Let's work together</div>
-        <h2>Got something to <em>build?</em></h2>
-        <p>Tell me what you need. I'll come back with a clear plan and a price. Usually within 24 hours.</p>
-        <div class="contact-cta">
-            <a href="mailto:orbensenior@gmail.com?subject=New%20project%20enquiry" class="btn btn-dark">Start a project →</a>
+    <!-- CONTACT / FOOTER -->
+    <footer id="contact">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <h3>Got something to build?</h3>
+                <p><a href="tel:0542500312" style="color:inherit;text-decoration:none;">054-2500312</a> · Haifa, Israel · Usually replies within 24 hours</p>
+            </div>
+            <div class="footer-links">
+                <a class="footer-link footer-link-email" href="mailto:orben12@gmail.com">orben12@gmail.com</a>
+                <a class="footer-link footer-link-li" href="https://www.linkedin.com/in/or-bensenior/" target="_blank">LinkedIn</a>
+            </div>
         </div>
-        <div class="contact-links">
-            <a href="mailto:orbensenior@gmail.com">orbensenior@gmail.com</a>
-            <a href="tel:0542500312">054-250-0312</a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
-        </div>
-    </div>
-</section>
+        <div class="footer-copy">© 2026 Or Ben-Senior</div>
+    </footer>
 
-<footer>
-    <span>© 2026 Or Ben-Senior · Design Studio · Haifa, Israel</span>
-    <a href="https://orben12-byte.github.io/portfolio_2026/">Product Portfolio ↗</a>
-</footer>
-
-<script>
-    const cur = document.getElementById('cursor');
-    let mx = -100, my = -100;
-    document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        cur.style.left = mx + 'px';
-        cur.style.top  = my + 'px';
-    });
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cur.classList.add('big'));
-        el.addEventListener('mouseleave', () => cur.classList.remove('big'));
-    });
-    const yellowSects = document.querySelectorAll('.contact-sect');
-    document.addEventListener('scroll', () => {
-        const inYellow = [...yellowSects].some(s => {
-            const r = s.getBoundingClientRect();
-            return r.top < window.innerHeight / 2 && r.bottom > window.innerHeight / 2;
+    <script>
+        const btn = document.getElementById('nav-hamburger');
+        const links = document.getElementById('nav-links');
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('open');
+            links.classList.toggle('open');
         });
-        cur.classList.toggle('on-yellow', inYellow);
-    });
-
-    document.getElementById('nav').addEventListener('scroll', () => {}, {passive: true});
-    addEventListener('scroll', () => {
-        document.getElementById('nav').classList.toggle('scrolled', scrollY > 20);
-    });
-
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        links.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                btn.classList.remove('open');
+                links.classList.remove('open');
+            });
         });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-        el.style.transitionDelay = (i % 4 * 75) + 'ms';
-        io.observe(el);
-    });
-</script>
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ── STATS COUNTER ──
+        if (!reducedMotion) {
+            function animateCounter(el) {
+                const text = el.textContent.trim();
+                const suffix = text.replace(/[0-9]/g, '');
+                const target = parseInt(text);
+                if (isNaN(target)) return;
+                const duration = 1200;
+                const startTime = performance.now();
+                function tick(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = Math.round(eased * target) + suffix;
+                    if (progress < 1) requestAnimationFrame(tick);
+                }
+                requestAnimationFrame(tick);
+            }
+            const statsObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        statsObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            document.querySelectorAll('.stat-number').forEach(el => statsObs.observe(el));
+        }
+
+        // ── CARD / SERVICE CARD SCROLL ENTRANCE ──
+        if (!reducedMotion) {
+            const cards = Array.from(document.querySelectorAll('.card, .svc-card'));
+            const cardObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const siblings = Array.from(card.parentElement.children);
+                        const idx = siblings.indexOf(card);
+                        card.classList.add('animating');
+                        setTimeout(() => {
+                            requestAnimationFrame(() => card.classList.add('visible'));
+                        }, idx * 80);
+                        card.addEventListener('transitionend', (e) => {
+                            if (e.propertyName === 'opacity') card.classList.remove('animating');
+                        }, { once: true });
+                        cardObs.unobserve(card);
+                    }
+                });
+            }, { threshold: 0.08 });
+            cards.forEach(card => cardObs.observe(card));
+        } else {
+            document.querySelectorAll('.card, .svc-card').forEach(c => c.classList.add('visible'));
+        }
+
+        // ── CUSTOM CURSOR ──
+        if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const cursor = document.getElementById('cursor');
+            let mx = 0, my = 0, cx = 0, cy = 0;
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                cursor.classList.add('is-visible');
+            });
+            document.addEventListener('mouseleave', () => cursor.classList.remove('is-visible'));
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('is-hovering'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('is-hovering'));
+            });
+            (function loop() {
+                cx += (mx - cx) * 0.14;
+                cy += (my - cy) * 0.14;
+                cursor.style.left = cx + 'px';
+                cursor.style.top  = cy + 'px';
+                requestAnimationFrame(loop);
+            })();
+        }
+
+        // ── PAGE TRANSITIONS ──
+        (function() {
+            const veil = document.getElementById('page-veil');
+            if (reducedMotion) { veil.style.display = 'none'; return; }
+
+            requestAnimationFrame(() => requestAnimationFrame(() => veil.classList.add('clear')));
+
+            document.querySelectorAll('a[href]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
+                if (/^https?:\/\//.test(href)) return;
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    veil.classList.remove('clear');
+                    setTimeout(() => { window.location.href = href; }, 300);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
