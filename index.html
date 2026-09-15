@@ -304,10 +304,17 @@
         }
 
         .card-thumb-blinkage { background: #3547DB url('blinkage-cover-new.png') center/cover no-repeat; }
-        .card-thumb-sirkis { background: #0d1b3e url('sirkis-cover.jpg') center/cover no-repeat; }
+        .card-thumb-sirkis { background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 100%); }
         .card-thumb-digitaz { background: linear-gradient(135deg, #f0f6ff 0%, #c8dcf8 60%, #daeeff 100%); }
         .card-thumb-digitaz img { position: relative; z-index: 1; width: 58%; max-width: 300px; mix-blend-mode: multiply; }
         .card-thumb-lifehero { background: #FFD60A url('lifehero-cover.png') center/cover no-repeat; }
+        .card-thumb-vr { background: #12103a url('work/vr-psychologist/01.jpg') center/cover no-repeat; }
+        .card-thumb-servicenow { background: #0b1e3f url('work/servicenow/01.jpg') center/cover no-repeat; }
+        .card-thumb-catopia { background: #1a2b1a url('work/catopia/01.jpg') center/cover no-repeat; }
+        .card-thumb-burger { background: #2a1810 url('work/burger-twins/01.jpg') center/cover no-repeat; }
+        .card-thumb-museum { background: #1a1a1a url('work/murder-museum/01.jpg') center/cover no-repeat; }
+        .card-thumb-motion { background: linear-gradient(135deg, #111 0%, #333 100%); }
+        .card-thumb-motion::after { content:''; position:absolute; width:0; height:0; border-style:solid; border-width:18px 0 18px 30px; border-color:transparent transparent transparent #FFD60A; }
 
         .card-thumb::after {
             content: 'View Case Study';
@@ -615,7 +622,7 @@
         </div>
 
         <div class="projects-grid">
-            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-blinkage.html">
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-blinkage.html" target="_blank" rel="noopener">
                 <div class="card-thumb card-thumb-blinkage"></div>
                 <div class="card-body">
                     <p class="card-meta">Product Design · Web & Mobile</p>
@@ -624,7 +631,7 @@
                 </div>
             </a>
 
-            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-sirkis.html">
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-sirkis.html" target="_blank" rel="noopener">
                 <div class="card-thumb card-thumb-sirkis"></div>
                 <div class="card-body">
                     <p class="card-meta">Product Design · Consumer App · Food</p>
@@ -633,7 +640,7 @@
                 </div>
             </a>
 
-            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-digitaz.html">
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-digitaz.html" target="_blank" rel="noopener">
                 <div class="card-thumb card-thumb-digitaz">
                     <img src="digitaz/logo.png" alt="DIGI.TAZ logo">
                 </div>
@@ -644,12 +651,66 @@
                 </div>
             </a>
 
-            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-lifehero.html">
+            <a class="card" href="https://orben12-byte.github.io/portfolio_2026/project-lifehero.html" target="_blank" rel="noopener">
                 <div class="card-thumb card-thumb-lifehero"></div>
                 <div class="card-body">
                     <p class="card-meta">Product Design · Graduation Project · App</p>
                     <h3 class="card-title">Life Hero</h3>
                     <p class="card-desc">A habit-building app with a superhero theme. Research with 300+ participants, full IA, UI system and prototype.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/vr-psychologist/">
+                <div class="card-thumb card-thumb-vr"></div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · VR App</p>
+                    <h3 class="card-title">VR Psychologist</h3>
+                    <p class="card-desc">A virtual-reality therapy experience — UI and interaction design for an immersive mental-health app.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/servicenow/">
+                <div class="card-thumb card-thumb-servicenow"></div>
+                <div class="card-body">
+                    <p class="card-meta">Product Design · App</p>
+                    <h3 class="card-title">ServiceNow</h3>
+                    <p class="card-desc">App screens and notification flows — a product design exercise from brief to UI.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/catopia/">
+                <div class="card-thumb card-thumb-catopia"></div>
+                <div class="card-body">
+                    <p class="card-meta">Game Art · Concept</p>
+                    <h3 class="card-title">Catopia</h3>
+                    <p class="card-desc">A game concept built around elemental cats — fire, water, earth and air — with isometric character art.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/burger-twins/">
+                <div class="card-thumb card-thumb-burger"></div>
+                <div class="card-body">
+                    <p class="card-meta">Brand & Packaging</p>
+                    <h3 class="card-title">Burger Twins</h3>
+                    <p class="card-desc">Full brand identity for a burger joint — logo system, packaging and menu design.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/murder-museum/">
+                <div class="card-thumb card-thumb-museum"></div>
+                <div class="card-body">
+                    <p class="card-meta">Brand & Illustration</p>
+                    <h3 class="card-title">Murder Museum</h3>
+                    <p class="card-desc">Concept branding and illustration for a crime museum — visual identity with a dark, investigative tone.</p>
+                </div>
+            </a>
+
+            <a class="card" href="work/motion/">
+                <div class="card-thumb card-thumb-motion"></div>
+                <div class="card-body">
+                    <p class="card-meta">Video · Motion</p>
+                    <h3 class="card-title">Motion &amp; Animation</h3>
+                    <p class="card-desc">Motion graphics and video editing — animated pieces and a re-cut film trailer.</p>
                 </div>
             </a>
         </div>
